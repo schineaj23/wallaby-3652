@@ -1,13 +1,11 @@
-#include <include/botball.h>
+#include <kipr/botball.h>
 #include <stdbool.h>
 #include <stdlib.h>
 
-#include "chasiss.h"
+#include "chassis.h"
 #include "util.h"
 #include "servos.h"
 
 void score();
 
-int calcMovement();
-
-
+bool readyScore();

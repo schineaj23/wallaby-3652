@@ -45,7 +45,12 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceRoot}"
+                "${workspaceRoot}",
+                "${workspaceRoot}/vscode",
+                "${workspaceRoot}/vscode/include",
+                "C:\\MinGW\\lib\\gcc\\mingw32\\6.3.0\\include\\c++",
+                "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/tr1",
+                "C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32"
             ],
             "defines": [
                 "_DEBUG",
@@ -55,7 +60,9 @@
             "intelliSenseMode": "msvc-x64",
             "browse": {
                 "path": [
-                    "${workspaceRoot}"
+                    "${workspaceRoot}",
+                    "${workspaceRoot}/vscode/include",
+                    "C:\\MinGW\\lib\\gcc\\mingw32\\6.3.0\\include\\c++"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
