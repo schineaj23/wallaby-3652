@@ -1,5 +1,6 @@
 #include "util.h"
 #include "chassis.h"
+#include <stdbool.h>
 
 #define NOT_TRACKING() analog(LINE_TRACKER) < 800
 #define TRACKING() analog(LINE_TRACKER) > 800
@@ -59,12 +60,5 @@ void trackLine()
     clear_motor_position_counter(RIGHT_MOTOR);
     clear_motor_position_counter(LEFT_MOTOR);
 
-
-
-    while(true)
-    {
-        correctPos();
-        printf("Left Pos:\t %d\n", get_motor_position_counter(LEFT_MOTOR));
-        printf("Right Pos:\t %d\n", get_motor_position_counter(RIGHT_MOTOR));
-    }
+    score();
 }
