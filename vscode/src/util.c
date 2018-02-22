@@ -55,8 +55,7 @@ void trackLine()
     moveForward(100, 500);
 
     spinLeft(75, 800);
-
-
+    
     clear_motor_position_counter(RIGHT_MOTOR);
     clear_motor_position_counter(LEFT_MOTOR);
 

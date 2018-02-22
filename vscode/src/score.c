@@ -17,8 +17,8 @@ bool readyScore()
 
 void score()
 {
-    if(!readyScore())
-        return;
+    while(!readyScore())
+        msleep(1);
 
     closeClaw();
 
