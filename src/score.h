@@ -8,6 +8,4 @@
 
 void score();
 
-int calcMovement();
-
-
+bool readyScore();
