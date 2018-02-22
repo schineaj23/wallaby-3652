@@ -3,8 +3,7 @@
 #define TURN_COUNT 2500
 
 bool readyScore()
-{
-    
+{    
     int leftCounter = gmpc(LEFT_MOTOR);
     int rightCounter = gmpc(RIGHT_MOTOR);
    
@@ -39,6 +38,9 @@ void score()
 
     while(!isTracking())
         moveForward(100, 1);
-
+    
     trackLine();
+    
+   	cmpc(LEFT_MOTOR);
+    cmpc(RIGHT_MOTOR);
 }
