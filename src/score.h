@@ -1,4 +1,4 @@
-#include <include/botball.h>
+#include <kipr/botball.h>
 #include <stdbool.h>
 #include <stdlib.h>
 
