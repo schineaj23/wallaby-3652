@@ -46,6 +46,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceRoot}",
+                "${workspaceRoot}/vscode",
                 "C:\\MinGW\\lib\\gcc\\mingw32\\6.3.0\\include\\c++"
             ],
             "defines": [
