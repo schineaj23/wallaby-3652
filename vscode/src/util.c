@@ -1,5 +1,6 @@
 #include "util.h"
 #include "chassis.h"
+#include "score.h"
 #include <stdbool.h>
 
 #define NOT_TRACKING() analog(LINE_TRACKER) < 800
