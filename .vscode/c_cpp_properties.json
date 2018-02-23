@@ -5,7 +5,11 @@
             "includePath": [
                 "/usr/include",
                 "/usr/local/include",
-                "${workspaceRoot}"
+                "${workspaceRoot}/kipr",
+                "${workspaceRoot}",
+                "/System/Library/Frameworks/OpenCL.framework/Versions/A/lib/clang/2.0/include",
+                "${workspaceRoot}/vscode/include",
+                "${workspaceRoot}/vscode"
             ],
             "defines": [],
             "intelliSenseMode": "clang-x64",
