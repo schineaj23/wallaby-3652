@@ -31,7 +31,7 @@ void skipLine(int direction, int linesToSkip)
 {
     int i;
     //for loops dont work in c i cri...
-    while(i<linesToSkip)
+    while(i<=linesToSkip)
     {
         if(FORWARD == direction)
         {
