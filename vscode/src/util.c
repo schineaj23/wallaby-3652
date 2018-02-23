@@ -50,7 +50,7 @@ void skipLine(int direction, int linesToSkip)
             while(isTracking())
                 moveBackward(100, 1);
         }
-        
+
     i++;
     }
 }
@@ -67,22 +67,6 @@ void correctPos()
 
 void trackLine()
 {
-    // reach the first line
-    while(!isTracking())
-        moveForward(100, 1);
-
-    // cross the first line 
-    while(isTracking())
-        moveForward(100, 1);
-
-    // reach the second line
-    while(!isTracking())
-        moveForward(100, 1);
-
-    // cross the second line
-    while(isTracking())
-        moveForward(100, 1);
-
     /*
     1. Reach the first line
     2. Cross the first line
@@ -90,7 +74,6 @@ void trackLine()
     4. Cross the second line
     */
 
-    //Cross 2 lines.
     skipLine(FORWARD, 2);
 
     moveForward(100, 500);
