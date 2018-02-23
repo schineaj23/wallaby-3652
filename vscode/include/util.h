@@ -12,3 +12,5 @@ bool isTracking();
 void trackLine();
 
 void correctPos();
+
+void skipLine(int direction, int linesToSkip);
