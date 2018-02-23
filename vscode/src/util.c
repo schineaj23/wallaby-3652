@@ -67,6 +67,18 @@ void correctPos()
 
 void trackLine()
 {
+
+    correctPos();
+
+    cmpc(RIGHT_MOTOR);
+    cmpc(LEFT_MOTOR);
+
+    score();
+}
+
+void getToLine()
+{
+
     /*
     1. Reach the first line
     2. Cross the first line
@@ -79,9 +91,5 @@ void trackLine()
     moveForward(100, 500);
 
     spinLeft(75, 800);
-    
-    cmpc(RIGHT_MOTOR);
-    cmpc(LEFT_MOTOR);
 
-    score();
 }
