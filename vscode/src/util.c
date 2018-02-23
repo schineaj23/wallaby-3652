@@ -80,8 +80,8 @@ void trackLine()
 
     spinLeft(75, 800);
     
-    clear_motor_position_counter(RIGHT_MOTOR);
-    clear_motor_position_counter(LEFT_MOTOR);
+    cmpc(RIGHT_MOTOR);
+    cmpc(LEFT_MOTOR);
 
     score();
 }
