@@ -1,7 +1,7 @@
+#include <stdbool.h>
 #include "util.h"
 #include "chassis.h"
 #include "score.h"
-#include <stdbool.h>
 
 #define NOT_TRACKING() analog(LINE_TRACKER) < 800
 #define TRACKING() analog(LINE_TRACKER) > 800
@@ -67,7 +67,6 @@ void correctPos()
 
 void trackLine()
 {
-
     correctPos();
 
     cmpc(RIGHT_MOTOR);
