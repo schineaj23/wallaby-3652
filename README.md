@@ -2,7 +2,8 @@
 Botball 2017-18 Program
 Not much else.
 
-# Key
+# Branches
 branch-master -> Deployed on Robot (manual)
+
 branch-testing -> Testing features on robot (manual)
-branch-deploy -> Trying an auto-build with ssh (UNDEPLOYED)
+
