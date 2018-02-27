@@ -1,7 +1,9 @@
-#include <kipr/botball.h>
 #include <stdbool.h>
+#include <kipr/botball.h>
 
 #define LINE_TRACKER 1
+
+bool cameraEnabled = true;
 
 void init();
 

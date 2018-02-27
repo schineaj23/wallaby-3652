@@ -18,9 +18,9 @@ bool readyScore()
 void score()
 {
 
-    //While it isn't ready to score, wait 1Msec
+    //While it isn't ready to score, don't execute
     while(!readyScore())
-        msleep(1);
+        return;
 
     closeClaw();
 
