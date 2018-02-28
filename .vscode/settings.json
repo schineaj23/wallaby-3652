@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "chassis.h": "c",
-        "stdbool.h": "c"
-    }
-}
