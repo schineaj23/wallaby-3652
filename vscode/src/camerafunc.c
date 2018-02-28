@@ -18,7 +18,7 @@ void setupCamera(const char* config)
         run();
 }
 
-int getObjectDimensions(char axis, int channel, int object)
+int getDimensions(char axis, int channel, int object)
 {
     switch(axis)
     {
@@ -39,12 +39,12 @@ int getObjectDimensions(char axis, int channel, int object)
 
 int calcDist(void) //Default
 {
-    return (STD_OBJECT_HEIGHT_MM * get_camera_height()) / (getObjectDimensions(y, 0, 0));
+    return (STD_OBJECT_HEIGHT_MM * get_camera_height()) / (getDimensions(y, 0, 0));
 }
 
 int calcDist(int channel, int object) // change channel, change object
 {
-    return (STD_OBJECT_HEIGHT_MM * get_camera_height()) / (getObjectDimensions(y, channel, object));
+    return (STD_OBJECT_HEIGHT_MM * get_camera_height()) / (getDimensions(y, channel, object));
 }
 
 
