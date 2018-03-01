@@ -66,7 +66,8 @@ void correctPos()
 
 void trackLine()
 {
-    correctPos();
+
+    getToLine();
 
     cmpc(RIGHT_MOTOR);
     cmpc(LEFT_MOTOR);
@@ -88,6 +89,7 @@ void getToLine()
 
     moveForward(100, 500);
 
-    spinLeft(75, 800);
+    while(!isTracking())
+        spinLeft(100, 1);
 
 }

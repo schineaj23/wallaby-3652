@@ -1,8 +1,9 @@
 #include "score.h"
 
+#define FORWARD 0
+#define BACKWARD 1
 
-
-#define TURN_COUNT 2500
+#define TURN_COUNT 2000
 
 bool readyScore()
 {    
@@ -22,7 +23,21 @@ void score()
 
     //While it isn't ready to score, don't execute
     while(!readyScore())
-        return;
+    {
+        printf("Not ready to score!\n");
+        correctPos();
+
+        if(gmpc(LEFT_MOTOR) > TURN_COUNT && gmpc(RIGHT_MOTOR) > TURN_COUNT)
+        {
+            printf("FAR BEYOND SCORING ZONE!\nResetting motor count and skipping zone\n");
+            cmpc(LEFT_MOTOR);
+            cmpc(RIGHT_MOTOR);
+            correctPos();
+        }
+
+        if(readyScore())
+            break;
+    }
 
     closeClaw();
 
