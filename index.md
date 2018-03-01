@@ -1,29 +1,34 @@
-## Welcome to GitHub Pages
+## Botball 2018 Project Base
 
-You can use the [editor on GitHub](https://github.com/schineaj23/wallaby-3652/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+The puropse of this code is to
+have a project base for Botball. This code is being maintained and updated actively most likely up until the end of the Botball 2018 season, although this will still be used as a project base by Parkside Robotics until further stated.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Features
 
-### Markdown
+- Basic Movement and Veering
+- Edge Tracking
+- Line Tracking
+- Camera Operations
+- Motor Tracking and Sensing
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Examples
 
-```markdown
-Syntax highlighted code block
+This is a simple track line program.
 
-# Header 1
-## Header 2
-### Header 3
+```c
+#include "chassis.h"
+#include "util.h"
 
-- Bulleted
-- List
+int main()
+{
+    skipLine(FORWARD, 2);
+    
+    trackLine();
 
-1. Numbered
-2. List
+    return 0;
+}
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
