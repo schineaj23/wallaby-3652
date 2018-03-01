@@ -1,5 +1,7 @@
 #include "score.h"
 
+
+
 #define TURN_COUNT 2500
 
 bool readyScore()

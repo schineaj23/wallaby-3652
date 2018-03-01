@@ -8,11 +8,18 @@
 #define y 'y'
 #define z 'z'
 
+bool isCameraEnabled = false;
+
 void setupCamera(const char* config)
 {
     camera_open_black();
 
+    if(!camera_open_black() != 1)
+        return;
+
     camera_load_config(config);
+
+    isCameraEnabled = true;
 
     while(1 == 1)
         run();
@@ -50,7 +57,7 @@ int calcDist(int channel, int object) // change channel, change object
 
 void run()
 {
-    while(!cameraEnabled)
+    while(!isCameraEnabled)
         return;
 
     //TODO: Add code. xd         

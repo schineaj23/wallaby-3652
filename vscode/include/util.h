@@ -3,8 +3,6 @@
 
 #define LINE_TRACKER 1
 
-bool cameraEnabled = true;
-
 void init();
 
 void shutDown();

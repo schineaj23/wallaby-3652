@@ -30,8 +30,7 @@ bool isTracking()
 void skipLine(int direction, int linesToSkip)
 {
     int i;
-    //for loops dont work in c i cri...
-    while(i<=linesToSkip)
+    for(i=0;i<linesToSkip;i++)
     {
         if(FORWARD == direction)
         {
