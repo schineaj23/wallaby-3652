@@ -5,6 +5,8 @@
 
 #define NOT_TRACKING() analog(LINE_TRACKER) < 800
 #define TRACKING() analog(LINE_TRACKER) > 800
+#define FORWARD 0
+#define BACKWARD 1
 
 void init()
 {
@@ -25,6 +27,33 @@ bool isTracking()
     return false;
 }
 
+void skipLine(int direction, int linesToSkip)
+{
+    int i;
+    for(i=0;i<linesToSkip;i++)
+    {
+        if(FORWARD == direction)
+        {
+            while(!isTracking())
+                moveForward(100, 1);
+
+            while(isTracking())
+                moveForward(100, 1);
+        }
+
+        if(BACKWARD == direction)
+        {
+            while(!isTracking())
+                moveBackward(100, 1);
+            
+            while(isTracking())
+                moveBackward(100, 1);
+        }
+
+    i++;
+    }
+}
+
 
 void correctPos()
 {
@@ -37,28 +66,30 @@ void correctPos()
 
 void trackLine()
 {
-    // reach the first line
-    while(!isTracking())
-        moveForward(100, 1);
 
-    // cross the first line 
-    while(isTracking())
-        moveForward(100, 1);
+    getToLine();
 
-    // reach the second line
-    while(!isTracking())
-        moveForward(100, 1);
+    cmpc(RIGHT_MOTOR);
+    cmpc(LEFT_MOTOR);
 
-    // cross the second line
-    while(isTracking())
-        moveForward(100, 1);
+    score();
+}
+
+void getToLine()
+{
+
+    /*
+    1. Reach the first line
+    2. Cross the first line
+    3. Reach the second line
+    4. Cross the second line
+    */
+
+    skipLine(FORWARD, 2);
 
     moveForward(100, 500);
 
-    spinLeft(75, 800);
-    
-    clear_motor_position_counter(RIGHT_MOTOR);
-    clear_motor_position_counter(LEFT_MOTOR);
+    while(!isTracking())
+        spinLeft(100, 1);
 
-    score();
 }
