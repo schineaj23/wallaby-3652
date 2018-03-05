@@ -1,2 +1,1 @@
-#### UNDER CONSTRUCTION!
-You will see documentation here. This is a placeholder.
+# [CLICK ME!](./docs/index.html)
