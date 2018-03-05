@@ -1,1 +1,1 @@
-# [CLICK ME!](./docs/index.html)
+# [CLICK ME!](./docs/index)
