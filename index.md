@@ -11,24 +11,21 @@ have a project base for Botball. This code is being maintained and updated activ
 - Camera Operations
 - Motor Tracking and Sensing
 
-### Examples
+### Simplicity
 
-This is a simple track line program.
+The PKMS Framework is Customizable without sacrificing simplicity.
+All features are as simple as calling a function! No need to link a .lib simply add the files!
+For example, a line tracking program.
 
 ```c
-#include "chassis.h"
 #include "util.h"
 
 int main()
-{
-    skipLine(FORWARD, 2);
-    
+{ 
     trackLine();
 
     return 0;
 }
-
-
 ```
 
 ### Support
@@ -37,4 +34,4 @@ If you find any bugs, have any questions or issues, feel free to open an Issue o
 
 ### Documentation
 
-#### Under construction...
+Documentation can be found [here](./doc). Documentation is constantly evolving and is still experimental, so don't expect much at the moment!
