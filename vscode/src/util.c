@@ -49,8 +49,6 @@ void skipLine(int direction, int linesToSkip)
             while(isTracking())
                 moveBackward(100, 1);
         }
-
-    i++;
     }
 }
 
