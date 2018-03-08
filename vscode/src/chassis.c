@@ -2,7 +2,7 @@
 
 void moveForward(int speed, int time)
 {
-    motor(LEFT_MOTOR, speed);
+    motor(LEFT_MOTOR, speed*0.85);
     motor(RIGHT_MOTOR, speed);
 	msleep(time);
     motor(LEFT_MOTOR, 0);

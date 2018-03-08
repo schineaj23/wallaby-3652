@@ -32,45 +32,57 @@ void skipLine(int direction, int linesToSkip)
     int i;
     for(i=0;i<linesToSkip;i++)
     {
+        printf("skipping line #%d...   \n",i);
         if(FORWARD == direction)
         {
-            while(!isTracking())
+            printf("not tracking, so moving forward\n");
+            while(!isTracking()) {
                 moveForward(100, 1);
+            }
 
-            while(isTracking())
+            printf("tracking now, so moving forward\n");
+            while(isTracking()) {
                 moveForward(100, 1);
+            }
+
+            printf("no longer tracking, line #%dhas been skipped\n",i);
         }
 
         if(BACKWARD == direction)
         {
             while(!isTracking())
                 moveBackward(100, 1);
-            
+
             while(isTracking())
                 moveBackward(100, 1);
-        }
+
+            printf("Skipping %d line!\n", linesToSkip);
+        }     
     }
+
+    printf("Done skipping lines!\n");
 }
 
 
 void correctPos()
 {
     while(isTracking())
-        veerRight(75, 10, 500);
+        veerLeft(75, 30, 1);
 
     while(!isTracking())
-        veerLeft(75, 10, 500);
+        veerRight(75, 30, 1);
 }
 
 void trackLine()
 {
-
     getToLine();
-
-    cmpc(RIGHT_MOTOR);
-    cmpc(LEFT_MOTOR);
-
+    
     score();
+}
+
+void run()
+{
+    trackLine();
 }
 
 void getToLine()
@@ -85,9 +97,8 @@ void getToLine()
 
     skipLine(FORWARD, 2);
 
-    moveForward(100, 500);
+    moveForward(100, 200);
 
     while(!isTracking())
-        spinLeft(100, 1);
-
+        spinLeft(100, 1);    
 }

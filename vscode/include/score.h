@@ -8,4 +8,4 @@
 
 void score();
 
-bool readyScore();
+void trackToDist(int distance);

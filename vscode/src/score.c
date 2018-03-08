@@ -3,49 +3,38 @@
 #define FORWARD 0
 #define BACKWARD 1
 
-#define TURN_COUNT 2000
-
-bool readyScore()
-{    
+void trackToDist(int distance)
+{
+    cmpc(LEFT_MOTOR);
+    cmpc(RIGHT_MOTOR);
+    
     int leftCounter = gmpc(LEFT_MOTOR);
     int rightCounter = gmpc(RIGHT_MOTOR);
-   
-    if(leftCounter == TURN_COUNT && rightCounter == TURN_COUNT)
+    
+    while(leftCounter <= distance) 
     {
-        return true;
+        if(isTracking())
+            veerLeft(100, 30, 1);
+        else
+            veerRight(100, 30, 1);
+        
+        leftCounter = gmpc(LEFT_MOTOR);
+        rightCounter = gmpc(RIGHT_MOTOR);
+        printf("Looping...\nLeft:\t%d\nRight:\t%d\n", leftCounter, rightCounter);
     }
-    return false;
 }
-
 
 void score()
 {
-
-    //While it isn't ready to score, don't execute
-    while(!readyScore())
-    {
-        printf("Not ready to score!\n");
-        correctPos();
-
-        if(gmpc(LEFT_MOTOR) > TURN_COUNT && gmpc(RIGHT_MOTOR) > TURN_COUNT)
-        {
-            printf("FAR BEYOND SCORING ZONE!\nResetting motor count and skipping zone\n");
-            cmpc(LEFT_MOTOR);
-            cmpc(RIGHT_MOTOR);
-            correctPos();
-        }
-
-        if(readyScore())
-            break;
-    }
+    trackToDist(3000);	
 
     closeClaw();
 
     //Turn towards scoring zone
-    spinLeft(100, 1000);
+    spinLeft(60, 900);
 
     //Skip line into the zone
-    skipLine(FORWARD, 1);
+    skipLine(FORWARD, 2);
 
     //move forward into the zone
     moveForward(100, 500);
@@ -53,19 +42,15 @@ void score()
     openClaw();
 
     //skip line out of zone
-    skipLine(BACKWARD, 1);
+    skipLine(BACKWARD, 2);
 
-    //turn towards line
-    spinRight(100, 1000);
-
-    //move towards line until starts tracking
     while(!isTracking())
-        moveForward(100, 1);
-    
-    //go back to executing trackLine() function
-    trackLine();
-    
+        spinRight(100, 1);
+
+    //move towards line until starts trackin
     //clear motor counters
-   	cmpc(LEFT_MOTOR);
+        
+    cmpc(LEFT_MOTOR);
     cmpc(RIGHT_MOTOR);
 }
+
