@@ -1,5 +1,4 @@
 #include "camerafunc.h"
-#include <kipr/geom.h>
 
 #define STD_OBJECT_HEIGHT_MM 30
 #define CAMERA_HEIGHT_MM 100
@@ -8,18 +7,18 @@
 #define y 'y'
 #define z 'z'
 
-bool isCameraEnabled = false;
+bool cameraEnabled = false;
 
 void setupCamera(const char* config)
 {
     camera_open_black();
-
-    if(!camera_open_black() != 1)
+    
+    if(camera_open_black() != 1)
         return;
 
     camera_load_config(config);
-
-    isCameraEnabled = true;
+    
+    cameraEnabled = true;
 
     while(1 == 1)
         run();
@@ -42,22 +41,21 @@ int getDimensions(char axis, int channel, int object)
 }
 
 
-//owo overloaded functions
 
-int calcDist(void) //Default
+int calcDist()
 {
     return (STD_OBJECT_HEIGHT_MM * get_camera_height()) / (getDimensions(y, 0, 0));
 }
 
-int calcDist(int channel, int object) // change channel, change object
+int calcDistEx(int channel, int object) // change channel, change object
 {
     return (STD_OBJECT_HEIGHT_MM * get_camera_height()) / (getDimensions(y, channel, object));
 }
 
 
-void run()
+void runCamera()
 {
-    while(!isCameraEnabled)
+    while(!cameraEnabled)
         return;
 
     //TODO: Add code. xd         

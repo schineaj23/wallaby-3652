@@ -7,7 +7,7 @@ int main()
 {
     init();
     
-    trackLine();
+    run();
     
     shutDown();
     return 0;

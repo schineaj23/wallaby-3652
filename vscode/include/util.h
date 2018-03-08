@@ -18,3 +18,5 @@ void skipLine(int direction, int linesToSkip);
 void getToLine();
 
 void trackEdge();
+
+void run();
