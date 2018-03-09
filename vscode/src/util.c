@@ -8,18 +8,26 @@
 #define FORWARD 0
 #define BACKWARD 1
 
-void init()
+
+// This is kind of like the constructor of the program. 
+// Add any code that you want before program starts
+// e.g reset motors, etc.
+void init() 
 {
     enable_servos();
 }
 
-void shutDown()
+//Destructor
+void shutDown() 
 {
     disable_servos();
     ao();
 }
 
-bool isTracking()
+// Check if is tracking
+// Usually used in the skipLine() and correctPos() functions
+// Can be used in custom functions though.
+bool isTracking() 
 {
     if(TRACKING())
         return true;
@@ -27,7 +35,11 @@ bool isTracking()
     return false;
 }
 
-void skipLine(int direction, int linesToSkip)
+// Skip line. Very useful, use this instead of while conditionals
+// Parameters: direction-> FORWARD = 0, BACKWARD = 1 Pretty sure these are defined in util.h,
+// So you don't have to use the direction as if magic numbers
+// 2nd Parameter: linesToSkip -> How many lines you want to skip.
+void skipLine(int direction, int linesToSkip) 
 {
     int i;
     for(i=0;i<linesToSkip;i++)
@@ -45,7 +57,7 @@ void skipLine(int direction, int linesToSkip)
                 moveForward(100, 1);
             }
 
-            printf("no longer tracking, line #%dhas been skipped\n",i);
+            printf("no longer tracking, line #%d has been skipped\n",i);
         }
 
         if(BACKWARD == direction)
@@ -63,8 +75,10 @@ void skipLine(int direction, int linesToSkip)
     printf("Done skipping lines!\n");
 }
 
-
-void correctPos()
+// This is your edge Tracking function.
+// It tracks the right edg.
+// You can change this by swapping the veerLeft and Right functions
+void correctPos() 
 {
     while(isTracking())
         veerLeft(75, 30, 1);
@@ -75,16 +89,20 @@ void correctPos()
 
 void trackLine()
 {
+    // TODO: Add general code here for linetracking, not for specific score function
+}
+
+
+// Main Function, call this instead of in main.c helps keep code organized.
+void run()
+{
     getToLine();
     
     score();
 }
 
-void run()
-{
-    trackLine();
-}
-
+// Function used for getting to the line we want to track.
+// You can change this if you want. It should be to suit your needs.
 void getToLine()
 {
 
