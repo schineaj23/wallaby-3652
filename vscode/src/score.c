@@ -26,32 +26,36 @@ void trackToDist(int distance)
 
 void score()
 {
-    trackToDist(3000);	
+    int i;
+    for(i=0; i<4; i++)
+    {
+        trackToDist(3000);	
 
-    closeClaw();
+        closeClaw();
 
-    //Turn towards scoring zone
-    spinLeft(60, 900);
+        //Turn towards scoring zone
+        spinLeft(60, 900);
 
-    //Skip line into the zone
-    skipLine(FORWARD, 2);
+        //Skip line into the zone
+        skipLine(FORWARD, 2);
 
-    //move forward into the zone
-    moveForward(100, 500);
+        //move forward into the zone
+        moveForward(100, 500);
 
-    openClaw();
+        openClaw();
 
-    //1. skip line out of zone
-    //2. skip linetracking line
-    skipLine(BACKWARD, 2);
+        //1. skip line out of zone
+        //2. skip linetracking line
+        skipLine(BACKWARD, 2);
 
-    while(!isTracking())
-        veerRight(100, 30, 1);
+        while(!isTracking())
+            veerRight(100, 30, 1);
 
-    //move towards line until starts trackin
-    //clear motor counters
-        
-    cmpc(LEFT_MOTOR);
-    cmpc(RIGHT_MOTOR);
+        //move towards line until starts tracking
+        //clear motor counters
+            
+        cmpc(LEFT_MOTOR);
+        cmpc(RIGHT_MOTOR);
+    }
 }
 
