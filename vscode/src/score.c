@@ -11,7 +11,7 @@ void trackToDist(int distance)
     int leftCounter = gmpc(LEFT_MOTOR);
     int rightCounter = gmpc(RIGHT_MOTOR);
     
-    while(leftCounter <= distance) 
+    while(leftCounter <= distance) // TODO: Not checking both sides because of veering problem, will fix
     {
         if(isTracking())
             veerLeft(100, 30, 1);
@@ -20,7 +20,7 @@ void trackToDist(int distance)
         
         leftCounter = gmpc(LEFT_MOTOR);
         rightCounter = gmpc(RIGHT_MOTOR);
-        printf("Looping...\nLeft:\t%d\nRight:\t%d\n", leftCounter, rightCounter);
+        printf("Looping...\nLeft:\t%d\nRight:\t%d\n", leftCounter, rightCounter); // For Debugging purposes
     }
 }
 
@@ -41,11 +41,12 @@ void score()
 
     openClaw();
 
-    //skip line out of zone
+    //1. skip line out of zone
+    //2. skip linetracking line
     skipLine(BACKWARD, 2);
 
     while(!isTracking())
-        spinRight(100, 1);
+        veerRight(100, 30, 1);
 
     //move towards line until starts trackin
     //clear motor counters

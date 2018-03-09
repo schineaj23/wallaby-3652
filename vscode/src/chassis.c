@@ -2,7 +2,7 @@
 
 void moveForward(int speed, int time)
 {
-    motor(LEFT_MOTOR, speed*0.85);
+    motor(LEFT_MOTOR, speed*0.85); // Temp hotfix for veering
     motor(RIGHT_MOTOR, speed);
 	msleep(time);
     motor(LEFT_MOTOR, 0);
