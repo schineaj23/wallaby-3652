@@ -55,3 +55,16 @@ void veerLeft(int speed, int veerOffset, int time)
     motor(RIGHT_MOTOR, 0);
 }
 
+void turnLeft(int speed, int time)
+{
+    motor(LEFT_MOTOR, speed*-0.85);
+    msleep(time);
+    motor(LEFT_MOTOR, 0);
+}
+
+void turnRight(int speed, int time)
+{
+    motor(RIGHT_MOTOR, speed*-0.85);
+    msleep(time);
+    motor(RIGHT_MOTOR, 0);
+}
