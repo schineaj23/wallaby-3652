@@ -10,7 +10,7 @@
 bool cameraEnabled = false;
 
 // Setup Camera, defacto "constructor" of the camera "class".
-// Specify config, this function doesn't do much, I just don't like useing camera_open() and camera_load_config()
+// Specify config, this function doesn't do much, I just don't like using camera_open() and camera_load_config()
 void setupCamera(const char* config)
 {
     camera_open_black();
@@ -22,7 +22,7 @@ void setupCamera(const char* config)
     
     cameraEnabled = true;
 
-    while(1 == 1)
+    while(cameraEnabled)
         run();
 }
 
@@ -32,7 +32,7 @@ int getDimensions(char axis, int channel, int object)
 {
     switch(axis)
     {
-        case 'x':
+     case 'x':
             return get_object_bbox_width(channel, object);
             break;
         case 'y':
@@ -61,8 +61,8 @@ int calcDistEx(int channel, int object) // change channel, change object
 // Main function of the camera. Use this either in score() or run().
 void runCamera()
 {
-    while(!cameraEnabled)
+    if(!cameraEnabled)
         return;
-
+         
     //TODO: Add code. xd         
 }
