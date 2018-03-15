@@ -1,10 +1,13 @@
+#include <kipr/botball.h>
+#include <wallaby/graphics_characters.h>
 #include <stdbool.h>
+#include <math.h>
 #include "util.h"
 #include "chassis.h"
 #include "score.h"
 
-#define NOT_TRACKING() analog(LINE_TRACKER) < 800
-#define TRACKING() analog(LINE_TRACKER) > 800
+#define NOT_TRACKING() analog(LINE_TRACKER) < 1000
+#define TRACKING() analog(LINE_TRACKER) > 1000
 #define FORWARD 0
 #define BACKWARD 1
 
@@ -48,14 +51,12 @@ void skipLine(int direction, int linesToSkip)
         if(FORWARD == direction)
         {
             printf("not tracking, so moving forward\n");
-            while(!isTracking()) {
+            while(!isTracking())
                 moveForward(100, 1);
-            }
 
             printf("tracking now, so moving forward\n");
-            while(isTracking()) {
+            while(isTracking())
                 moveForward(100, 1);
-            }
 
             printf("no longer tracking, line #%d has been skipped\n",i);
         }
@@ -75,28 +76,33 @@ void skipLine(int direction, int linesToSkip)
     printf("Done skipping lines!\n");
 }
 
+// This function is NOT skipLine()!
+// This function is for skipping a line and stopping at an edge (hence the name)
+// Use this ONLY when skipping a line, THEN stopping at an edge of a line.
+// Usage: skipToEdge(FORWARD, 1) <- 1 is for 1 LINE to skip, then stop at the next EDGE.
 void skipToEdge(int direction, int linesToSkip) 
 {
+    printf("USING SKIP TO EDGE FUNCTION!\n\n");
+
     int i;
-    for(i=0;i<=linesToSkip;i++)
+    for(i=0;i<linesToSkip;i++)
     {
-        printf("skipping line #%d...   \n",i);
+        printf("Skipping Line #%d...   \n",i);
         if(FORWARD == direction)
         {
             printf("not tracking, so moving forward\n");
-            while(!isTracking()) {
+            while(!isTracking())
                 moveForward(100, 1);
-            }
+
 
             printf("tracking now, so moving forward\n");
-            while(isTracking()) {
+            while(isTracking())
                 moveForward(100, 1);
-            }
 
             printf("no longer tracking, line #%d has been skipped\n",i);
         }
 
-        if(BACKWARD == direction)
+        else
         {
             while(!isTracking())
                 moveBackward(100, 1);
@@ -107,26 +113,36 @@ void skipToEdge(int direction, int linesToSkip)
             printf("Skipping %d line!\n", linesToSkip);
         }     
     }
+    stopAtEdge(direction);
 
     printf("Done skipping lines!\n");
 }
 
 void stopAtEdge(int direction)
 {
-    while(!isTracking())
-        direction == forward ?  moveForward(100, 1) :  moveBackward(100, 1);
+    if(isTracking())
+    {
+        while(isTracking())
+            direction == FORWARD ? moveForward(100, 1) : moveBackward(100,1);
+    }
+
+   	else
+    {
+        while(!isTracking())
+            direction == FORWARD ? moveForward(100, 1) : moveBackward(100,1);
+    }
 }
 
 // This is your edge Tracking function.
-// It tracks the right edg.
+// It tracks the right edge.
 // You can change this by swapping the veerLeft and Right functions
 void correctPos() 
 {
     while(isTracking())
-        veerLeft(75, 30, 1);
+        veerRight(75, 30, 1);
 
     while(!isTracking())
-        veerRight(75, 30, 1);
+        veerLeft(75, 30, 1);
 }
 
 void trackLine()
@@ -138,8 +154,10 @@ void trackLine()
 // Main Function, call this instead of in main.c helps keep code organized.
 void run()
 {
-    getToLine();
+    wait_for_light(LIGHT_SENSOR);
     
+    getToLine();
+
     score();
 }
 
@@ -152,6 +170,7 @@ void getToLine()
     1. Reach the first line
     2. Cross the first line
     3. Reach the second line
+
     4. Cross the second line
     */
 
@@ -160,5 +179,20 @@ void getToLine()
     moveForward(100, 200);
 
     while(!isTracking())
-        spinLeft(100, 1);    
+        spinRight(100, 1);    
 }
+
+void dontTouchThis()
+{
+    graphics_open(800, 600);
+
+    while(true)
+    {
+        //graphics_printString("yay it worked!", 800/2, 600/2, sin(0.0001), sin(0.001), sin(0.01), 100);
+
+		graphics_update();
+    }
+
+    graphics_close();
+}
+

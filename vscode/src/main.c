@@ -2,6 +2,7 @@
 #include "util.h"
 #include "servos.h"
 #include "chassis.h"
+#include "score.h"
 
 // You really don't NEED to touch these functions.
 // What you do with this base is your business.

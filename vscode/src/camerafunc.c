@@ -10,7 +10,7 @@
 bool cameraEnabled = false;
 
 // Setup Camera, defacto "constructor" of the camera "class".
-// Specify config, this function doesn't do much, I just don't like useing camera_open() and camera_load_config()
+// Specify config, this function doesn't do much, I just don't like using camera_open() and camera_load_config()
 void setupCamera(const char* config)
 {
     camera_open_black();
@@ -22,7 +22,7 @@ void setupCamera(const char* config)
     
     cameraEnabled = true;
 
-    while(1 == 1)
+    while(cameraEnabled)
         run();
 }
 
