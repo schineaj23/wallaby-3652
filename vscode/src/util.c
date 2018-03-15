@@ -114,11 +114,11 @@ void skipToEdge(int direction, int linesToSkip)
 void stopAtEdge(int direction)
 {
     while(!isTracking())
-        direction == forward ?  moveForward(100, 1) :  moveBackward(100, 1);
+        direction == FORWARD ?  moveForward(100, 1) :  moveBackward(100, 1);
 }
 
 // This is your edge Tracking function.
-// It tracks the right edg.
+// It tracks the right edge.
 // You can change this by swapping the veerLeft and Right functions
 void correctPos() 
 {
