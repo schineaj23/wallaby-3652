@@ -1,5 +1,4 @@
 #include "camerafunc.h"
-#include <kipr/geom.h>
 
 #define STD_OBJECT_HEIGHT_MM 30
 #define CAMERA_HEIGHT_MM 100
@@ -8,23 +7,27 @@
 #define y 'y'
 #define z 'z'
 
-bool isCameraEnabled = false;
+bool cameraEnabled = false;
 
+// Setup Camera, defacto "constructor" of the camera "class".
+// Specify config, this function doesn't do much, I just don't like useing camera_open() and camera_load_config()
 void setupCamera(const char* config)
 {
     camera_open_black();
-
-    if(!camera_open_black() != 1)
+    
+    if(camera_open_black() != 1)
         return;
 
     camera_load_config(config);
-
-    isCameraEnabled = true;
+    
+    cameraEnabled = true;
 
     while(1 == 1)
         run();
 }
 
+// Get dimensions of an object. This is a messy function at the time.
+// Will fix, but comes in handy when doing algorithims.
 int getDimensions(char axis, int channel, int object)
 {
     switch(axis)
@@ -42,22 +45,23 @@ int getDimensions(char axis, int channel, int object)
 }
 
 
-//owo overloaded functions
-
-int calcDist(void) //Default
+// Calculate Distance to an object using focal height and length algorithim. Default Function.
+int calcDist()
 {
     return (STD_OBJECT_HEIGHT_MM * get_camera_height()) / (getDimensions(y, 0, 0));
 }
 
-int calcDist(int channel, int object) // change channel, change object
+// Calculate Distance to an object using focal height and length algorithim.
+// Couldn't overload in C, so use this when you want to choose the object and channel of your liking.
+int calcDistEx(int channel, int object) // change channel, change object
 {
     return (STD_OBJECT_HEIGHT_MM * get_camera_height()) / (getDimensions(y, channel, object));
 }
 
-
-void run()
+// Main function of the camera. Use this either in score() or run().
+void runCamera()
 {
-    while(!isCameraEnabled)
+    while(!cameraEnabled)
         return;
 
     //TODO: Add code. xd         

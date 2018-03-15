@@ -3,11 +3,13 @@
 #include "servos.h"
 #include "chassis.h"
 
+// You really don't NEED to touch these functions.
+// What you do with this base is your business.
 int main()
 {
     init();
     
-    trackLine();
+    run();
     
     shutDown();
     return 0;

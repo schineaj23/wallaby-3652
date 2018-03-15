@@ -4,23 +4,14 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
-            "type": "shell",
-            "command": "msbuild",
-            "args": [
-                "/property:GenerateFullPaths=true",
-                "/t:build"
-            ],
-            "group": "build",
-            "presentation": {
-                "reveal": "silent"
-            },
-            "problemMatcher": "$msCompile"
-        },
-        {
             "label": "deploy",
             "type": "shell",
             "command": "run.sh",
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "build.sh",
         }
     ]
 }

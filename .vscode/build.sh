@@ -1,0 +1,9 @@
+echo @off
+echo trying to work
+ssh root@192.168.125.1
+echo Connecting to wallaby...
+cd ..
+cd /home\ Default User
+echo Connected to Wallaby, building...
+make -f cpp
+echo Running program...

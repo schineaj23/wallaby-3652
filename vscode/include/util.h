@@ -15,6 +15,12 @@ void correctPos();
 
 void skipLine(int direction, int linesToSkip);
 
+void skipToEdge(int direction, int linesToSkip);
+
+void stopAtEdge();
+
 void getToLine();
 
 void trackEdge();
+
+void run();
