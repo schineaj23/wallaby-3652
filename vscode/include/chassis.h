@@ -14,3 +14,7 @@ void spinRight(int speed, int time);
 void veerRight(int speed, int veerOffset, int time);
 
 void veerLeft(int speed, int veerOffset, int time);
+
+void turnLeft(int speed, int time);
+
+void turnRight(int speed, int time);

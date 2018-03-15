@@ -24,36 +24,39 @@ void trackToDist(int distance)
     }
 }
 
+void getToZone()
+{
+    //Turn towards scoring zone
+    spinLeft(60, 900);
+
+    //Skip line into the zone
+    skipLine(FORWARD, 2);
+}
+
+void returnToLine()
+{
+    //skip to edge of linetracking line
+    skipToEdge(BACKWARD, 1);
+
+    while(isTracking())
+        turnRight(100, 1);
+}
+
 void score()
 {
     int i;
     for(i=0; i<4; i++)
     {
-        trackToDist(3000);	
+        trackToDist(3000); // Track line until distance
 
-        closeClaw();
+        getToZone(); // Get into scoring zone
 
-        //Turn towards scoring zone
-        spinLeft(60, 900);
+        moveForward(100, 500); // Move forward in zone to ensure poms are in.
 
-        //Skip line into the zone
-        skipLine(FORWARD, 2);
+        // Return  
+        returnToLine();
 
-        //move forward into the zone
-        moveForward(100, 500);
-
-        openClaw();
-
-        //1. skip line out of zone
-        //2. skip linetracking line
-        skipLine(BACKWARD, 2);
-
-        while(!isTracking())
-            veerRight(100, 30, 1);
-
-        //move towards line until starts tracking
-        //clear motor counters
-            
+        // Clear motors for next rep.
         cmpc(LEFT_MOTOR);
         cmpc(RIGHT_MOTOR);
     }
