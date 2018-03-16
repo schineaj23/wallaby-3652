@@ -1,6 +1,7 @@
-#include <kipr/botball.h>
-#include <wallaby/graphics_characters.h>
 #include <stdbool.h>
+#include <kipr/botball.h>
+#include <kipr/graphics_characters.h>
+#include <kipr/graphics.h>
 #include <math.h>
 #include "util.h"
 #include "chassis.h"
@@ -118,15 +119,17 @@ void skipToEdge(int direction, int linesToSkip)
     printf("Done skipping lines!\n");
 }
 
+// Stop at the next edge, very applyable.
+// Use this instead of while loops
 void stopAtEdge(int direction)
 {
-    if(isTracking())
+    if(isTracking()) // Checks if currently tracking
     {
-        while(isTracking())
-            direction == FORWARD ? moveForward(100, 1) : moveBackward(100,1);
+      while(isTracking())
+        direction == FORWARD ? moveForward(100, 1) : moveBackward(100,1);
     }
 
-   	else
+   	else // Checks if not tracking
     {
         while(!isTracking())
             direction == FORWARD ? moveForward(100, 1) : moveBackward(100,1);
@@ -182,16 +185,22 @@ void getToLine()
         spinRight(100, 1);    
 }
 
-void dontTouchThis()
+void dontTouchThis() // Seizure Inducing. (Graphics Test)
 {
-    graphics_open(800, 600);
+    const int G_WIDTH=800, G_HEIGHT=600;
+
+    graphics_open(G_WIDTH, G_HEIGHT);
 
     while(true)
     {
-        //graphics_printString("yay it worked!", 800/2, 600/2, sin(0.0001), sin(0.001), sin(0.01), 100);
+        graphics_rectangle(0, 600, 800, 600, sin(0.0001), sin(0.01), sin(0.1));
+
+        graphics_printString("wow", 800/2, 600/2, sin(0.0001), sin(0.001), sin(0.01), 100);
 
 		graphics_update();
     }
+
+    graphics_clear();
 
     graphics_close();
 }
