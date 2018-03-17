@@ -11,7 +11,8 @@
                 "${workspaceRoot}/vscode/include",
                 "${workspaceRoot}/vscode",
                 "${workspaceRoot}/vscode",
-                "${workspaceRoot}/vscode"
+                "${workspaceRoot}/vscode",
+                "/usr/include/c++/4.2.1"
             ],
             "defines": [],
             "intelliSenseMode": "clang-x64",

@@ -3,6 +3,7 @@
         "chassis.h": "c",
         "stdbool.h": "c",
         "graphics_characters.h": "c",
-        "graphics.h": "c"
+        "graphics.h": "c",
+        "cstring": "cpp"
     }
 }
