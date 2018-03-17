@@ -55,7 +55,7 @@ void drawString(char* pText, int x, int y, int r, int g, int b)
 void drawNum(float num, int x, int y, int r, int g, int b)
 {
     checkEnabled();   
-    graphics_printString(to_string(num).c_str(), x, y, r, g, b, STD_SIZE)
+    graphics_printString(to_string(num).c_str(), x, y, r, g, b, STD_SIZE);
 }
 
 void drawCircle(int x, int y, int radius, int r, int g, int b)
@@ -84,7 +84,7 @@ void drawColor(int r, int g, int b)
 
 void render()
 {
-    initDraw();
+    initDraw(800, 600);
 
     while(drawEnabled)
     {
