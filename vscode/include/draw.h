@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <stdbool.h>
-#include <cstring>
 
 #include <kipr/botball.h>
 #include <kipr/graphics.h>
@@ -55,7 +54,7 @@ void drawString(char* pText, int x, int y, int r, int g, int b)
 void drawNum(float num, int x, int y, int r, int g, int b)
 {
     checkEnabled();   
-    graphics_printFloat(num, x, y, r, g, b, STD_SIZE);
+    graphics_printFloat(num, 32, x, y, r, g, b, STD_SIZE); // I mean it shouldn't be higher than 32 right?
 }
 
 void drawCircle(int x, int y, int radius, int r, int g, int b)
@@ -67,7 +66,7 @@ void drawCircle(int x, int y, int radius, int r, int g, int b)
 void drawTrig(int x1, int y1, int x2, int y2, int x3, int y3, int r, int g, int b)
 {
     checkEnabled();
-    graphics_triangle_fill(x1, y1, x2, y2, x3, y3, int r, int g, int b);
+    graphics_triangle_fill(x1, y1, x2, y2, x3, y3, r, g, b);
 }
 
 void drawRect(int x1, int y1, int x2, int y2, int r, int g, int b)

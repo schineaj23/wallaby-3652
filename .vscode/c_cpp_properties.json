@@ -69,7 +69,7 @@
                 "path": [
                     "${workspaceRoot}",
                     "${workspaceRoot}/vscode/include",
-                    "C:\\MinGW\\lib\\gcc\\mingw32\\6.3.0\\include\\c++"
+                    "C:/MinGW/lib//gcc/mingw32/6.3.0/include/c++"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""

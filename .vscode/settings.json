@@ -4,6 +4,7 @@
         "stdbool.h": "c",
         "graphics_characters.h": "c",
         "graphics.h": "c",
-        "cstring": "cpp"
+        "cstring": "cpp",
+        "botball.h": "c"
     }
 }
