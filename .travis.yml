@@ -5,7 +5,8 @@ compiler:
   - clang
 
 before_script:
-  - cd vscode
-  - ls
-  - cmake --build
+  - mkdir build
+  - cd build
+  - cmake ..
+
 script: make
