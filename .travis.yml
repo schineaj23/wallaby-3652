@@ -6,6 +6,6 @@ compiler:
 
 before_script:
   - cd vscode
-  - cmake --build
+  - cmake --build .
 
 script: make
