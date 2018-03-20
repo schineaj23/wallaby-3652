@@ -7,8 +7,6 @@ compiler:
 before_script:
   - cd vscode
   - ls
-  - cmake --build /src/
-  - cmake --build /include/
-  - cmake --build /kipr/
-
+  - cmake .
+  - cmake --build
 script: make
