@@ -43,7 +43,7 @@ typedef struct Vector // Simple vector if wanting to work with more drawing logi
 
 // Drawing functions.
 // These can be used standalone, but then they can't be updated.
-// Just use draw(). These really don't have effect without.
+// Just call them in draw(). These really don't have effect without.
 
 void drawString(char* pText, int x, int y, int r, int g, int b)
 {
