@@ -5,7 +5,8 @@
 #include <kipr/graphics.h>
 #include <kipr/graphics_characters.h>
 
-#define STD_SIZE setTextSize(30)
+//Global variables in headers! Whee!
+float STD_SIZE 30;
 
 bool drawEnabled = false;
 
@@ -30,16 +31,30 @@ void checkEnabled()
         return;
 }
 
-float setTextSize(float size)
+void setTextSize(float size)
 {
-    return size;
+    size = STD_SIZE;
 }
 
-typedef struct Vector // Simple vector if wanting to work with more drawing logic
+float getTextSize()
+{
+    return STD_SIZE;
+}
+
+typedef struct Vector2D // Simple vector if wanting to work with more drawing logic
 {
     int x, y;
-};
- 
+} Vector;
+
+typedef struct Vector3D // Vector for 3D space
+{
+    int x, y, z;
+} Vector3;
+
+Vector3 vectorNormalize(Vector3 vec) // idk why I put this in tbh
+{
+    return sqrt(vec.x*vec.x + vec.y*vec.y)
+}
 
 // Drawing functions.
 // These can be used standalone, but then they can't be updated.
@@ -48,13 +63,13 @@ typedef struct Vector // Simple vector if wanting to work with more drawing logi
 void drawString(char* pText, int x, int y, int r, int g, int b)
 {
     checkEnabled();
-    graphics_printString(pText, x, y, r, g, b, STD_SIZE);
+    graphics_printString(pText, x, y, r, g, b, getTextSize());
 }
 
 void drawNum(float num, int x, int y, int r, int g, int b)
 {
     checkEnabled();   
-    graphics_printFloat(num, 32, x, y, r, g, b, STD_SIZE); // I mean it shouldn't be higher than 32 right?
+    graphics_printFloat(num, 32, x, y, r, g, b, getTextSize()); // I mean it shouldn't be higher than 32 right?
 }
 
 void drawCircle(int x, int y, int radius, int r, int g, int b)
