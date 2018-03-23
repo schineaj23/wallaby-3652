@@ -39,7 +39,7 @@ typedef struct Vector // Simple vector if wanting to work with more drawing logi
 {
     int x, y;
 };
-
+ 
 
 // Drawing functions.
 // These can be used standalone, but then they can't be updated.
