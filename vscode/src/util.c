@@ -1,7 +1,5 @@
 #include <stdbool.h>
 #include <kipr/botball.h>
-#include <kipr/graphics_characters.h>
-#include <kipr/graphics.h>
 #include <math.h>
 #include "util.h"
 #include "chassis.h"
@@ -13,24 +11,17 @@
 #define BACKWARD 1
 
 
-// This is kind of like the constructor of the program. 
-// Add any code that you want before program starts
-// e.g reset motors, etc.
 void init() 
 {
     enable_servos();
 }
 
-//Destructor
 void shutDown() 
 {
     disable_servos();
     ao();
 }
 
-// Check if is tracking
-// Usually used in the skipLine() and correctPos() functions
-// Can be used in custom functions though.
 bool isTracking() 
 {
     if(TRACKING())
@@ -39,10 +30,6 @@ bool isTracking()
     return false;
 }
 
-// Skip line. Very useful, use this instead of while conditionals
-// Parameters: direction-> FORWARD = 0, BACKWARD = 1 Pretty sure these are defined in util.h,
-// So you don't have to use the direction as if magic numbers
-// 2nd Parameter: linesToSkip -> How many lines you want to skip.
 void skipLine(int direction, int linesToSkip) 
 {
     int i;
@@ -77,10 +64,6 @@ void skipLine(int direction, int linesToSkip)
     printf("Done skipping lines!\n");
 }
 
-// This function is NOT skipLine()!
-// This function is for skipping a line and stopping at an edge (hence the name)
-// Use this ONLY when skipping a line, THEN stopping at an edge of a line.
-// Usage: skipToEdge(FORWARD, 1) <- 1 is for 1 LINE to skip, then stop at the next EDGE.
 void skipToEdge(int direction, int linesToSkip) 
 {
     printf("USING SKIP TO EDGE FUNCTION!\n\n");
@@ -136,9 +119,7 @@ void stopAtEdge(int direction)
     }
 }
 
-// This is your edge Tracking function.
-// It tracks the right edge.
-// You can change this by swapping the veerLeft and Right functions
+
 void correctPos() 
 {
     while(isTracking())
@@ -148,24 +129,15 @@ void correctPos()
         veerLeft(75, 30, 1);
 }
 
-void trackLine()
-{
-    // TODO: Add general code here for linetracking, not for specific score function
-}
-
-
-// Main Function, call this instead of in main.c helps keep code organized.
 void run()
 {
-    wait_for_light(LIGHT_SENSOR);
+    // wait_for_light(LIGHT_SENSOR);
     
     getToLine();
 
     score();
 }
 
-// Function used for getting to the line we want to track.
-// You can change this if you want. It should be to suit your needs.
 void getToLine()
 {
 
@@ -182,26 +154,9 @@ void getToLine()
     moveForward(100, 200);
 
     while(!isTracking())
-        spinRight(100, 1);    
-}
-
-void dontTouchThis() // Seizure Inducing. (Graphics Test)
-{
-    const int G_WIDTH=800, G_HEIGHT=600;
-
-    graphics_open(G_WIDTH, G_HEIGHT);
-
-    while(true)
-    {
-        graphics_rectangle(0, 600, 800, 600, sin(0.0001), sin(0.01), sin(0.1));
-
-        graphics_printString("wow", 800/2, 600/2, sin(0.0001), sin(0.001), sin(0.01), 100);
-
-		graphics_update();
-    }
-
-    graphics_clear();
-
-    graphics_close();
+        spinRight(100, 1);
+    
+    while(isTracking())
+        spinRight(100, 1);
 }
 

@@ -3,5 +3,5 @@
 // Main Drawing loop
 void draw()
 {
-    // Add your drawing functions here. YAY!
+    // Add drawing functions here
 }

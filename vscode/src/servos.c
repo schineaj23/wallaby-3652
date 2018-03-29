@@ -2,23 +2,10 @@
 
 void openClaw()
 {
-    set_servo_position(SERVO_CLAW_MOTOR, 1500);
+    set_servo_position(SERVO_CLAW_MOTOR, 2047);
 }
 
 void closeClaw()
 {
-    set_servo_position(SERVO_CLAW_MOTOR, 300);
+    set_servo_position(SERVO_CLAW_MOTOR, 0);
 }
-
-void armUp(int pos, int time)
-{
-    set_servo_position(SERVO_ARM_MOTOR, pos*-1);
-    msleep(time);
-}
-
-void armDown(int pos, int time)
-{
-    set_servo_position(SERVO_ARM_MOTOR, pos*-1);
-    msleep(time);
-}
-

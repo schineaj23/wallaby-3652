@@ -1,36 +1,25 @@
 #include "cammath.h"
 #include "draw.h"
 
-#define STD_OBJECT_HEIGHT_MM 30
-#define CAMERA_HEIGHT_MM 100
+// Defaults for crates.
+const double OBJECT_HEIGHT_MM = 101.6;
+const double CAMERA_HEIGHT_MM = 185;
 
-// Get dimensions of an object. This is a messy function at the time.
-// Will fix, but comes in handy when doing algorithims.
-int getDimensions(Vector axis, int channel, int object)
+double calcDist(int channel, int object)
 {
-    switch(axis)
-    {
-    case x:
-            return get_object_bbox_width(channel, object);
-            break;
-    case y:
-            return get_object_bbox_height(channel, object);
-            break;
-        default:
-            break;
-    } 
-    return 0;
+    if(isTrackable(channel, object)) 
+        return ((double)get_object_bbox_height(channel, object) / ((double)get_camera_height()))*508;
+    
+   	return -1;
 }
 
-// Calculate Distance to an object using focal height and length algorithim. Default Function.
-int calcDist()
+double distTicks(int dist)
 {
-    return (STD_OBJECT_HEIGHT_MM * get_camera_height()) / (getDimensions(y, 0, 0));
+    return dist*159;
 }
 
-// Calculate Distance to an object using focal height and length algorithim.
-// Couldn't overload in C, so use this when you want to choose the object and channel of your liking.
-int calcDistEx(int channel, int object) // change channel, change object
+bool isTrackable(int channel, int object)
 {
-    return (STD_OBJECT_HEIGHT_MM * get_camera_height()) / (getDimensions(y, channel, object));
+    if(get_object_confidence(channel, object) >= 0.5) return true;
+    return false;
 }
