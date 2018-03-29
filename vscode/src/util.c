@@ -102,6 +102,8 @@ void skipToEdge(int direction, int linesToSkip)
     printf("Done skipping lines!\n");
 }
 
+// Stop at the next edge, very applyable.
+// Use this instead of while loops
 void stopAtEdge(int direction)
 {
     if(isTracking()) // Checks if currently tracking

@@ -1,6 +1,10 @@
 {
     "files.associations": {
         "chassis.h": "c",
-        "stdbool.h": "c"
+        "stdbool.h": "c",
+        "graphics_characters.h": "c",
+        "graphics.h": "c",
+        "cstring": "cpp",
+        "botball.h": "c"
     }
 }

@@ -43,7 +43,6 @@ static float getTextSize()
     return STD_SIZE;
 }
 
-
 static void drawCircle(int x, int y, int radius, int r, int g, int b)
 {
     checkEnabled();

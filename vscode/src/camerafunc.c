@@ -18,8 +18,6 @@ void setupCamera(const char* config)
     camera_close();
 }
 
-
-
 // Main function of the camera. Use this either in score() or run().
 void runCamera()
 {

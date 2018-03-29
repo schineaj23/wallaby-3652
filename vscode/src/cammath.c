@@ -23,4 +23,3 @@ bool isTrackable(int channel, int object)
     if(get_object_confidence(channel, object) >= 0.5) return true;
     return false;
 }
-

@@ -9,3 +9,4 @@
 void setupCamera(const char* config);
 
 void runCamera();
+
