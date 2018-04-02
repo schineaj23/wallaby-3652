@@ -8,6 +8,6 @@
 
 void score();
 
-void trackToDist(int distance);
+void returnToLine();
 
-void tmp();
+void getToZone();

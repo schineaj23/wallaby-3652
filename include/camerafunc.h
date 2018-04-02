@@ -6,7 +6,7 @@
 #include "score.h"
 #include "servos.h"
 
-void setupCamera(const char* config);
+bool setupCamera(const char* config);
 
 void runCamera();
 

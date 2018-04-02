@@ -6,7 +6,6 @@
 #include "score.h"
 #include "servos.h"
 
-
 double calcDist(int channel, int object);
 
 int getDimensions(char axis, int object, int channel);

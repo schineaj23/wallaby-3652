@@ -10,18 +10,4 @@ void shutDown();
 
 bool isTracking();
 
-void trackLine();
-
-void correctPos();
-
-void skipLine(int direction, int linesToSkip);
-
-void skipToEdge(int direction, int linesToSkip);
-
-void stopAtEdge(int direction);
-
-void getToLine();
-
-void trackEdge();
-
 void run();
