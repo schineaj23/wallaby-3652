@@ -8,8 +8,9 @@ have a project base for Botball. This code is being maintained and updated activ
 - Basic Movement and Veering
 - Edge Tracking
 - Line Tracking
-- Camera Operations
+- Camera Operations and Algorithims
 - Motor Tracking and Sensing
+- Drawing Logic and Functions
 
 ### Simplicity
 
@@ -18,7 +19,7 @@ All features are as simple as calling a function! No need to link a .lib simply 
 For example, a line tracking program.
 
 ```c
-#include "util.h"
+#include "chassis.h"
 
 int main()
 { 
