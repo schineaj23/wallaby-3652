@@ -2,7 +2,7 @@
 
 void openClaw()
 {
-    set_servo_position(SERVO_CLAW_MOTOR, 2047);
+    set_servo_position(SERVO_CLAW_MOTOR, 1500);
 }
 
 void closeClaw()

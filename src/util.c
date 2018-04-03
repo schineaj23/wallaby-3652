@@ -145,7 +145,6 @@ void getToLine()
     1. Reach the first line
     2. Cross the first line
     3. Reach the second line
-
     4. Cross the second line
     */
 
