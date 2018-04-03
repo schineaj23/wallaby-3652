@@ -9,5 +9,3 @@
 void score();
 
 void trackToDist(int distance);
-
-void tmp();
