@@ -27,8 +27,9 @@ bool isTrackable(int channel, int object)
 }
 
 
-short idk_the_name(int color)
+short findPixel(int b_color)
 {
+    short color;
     int h = get_camera_height();
     int w = get_camera_width();
     char *image = get_camera_frame();
@@ -40,7 +41,12 @@ short idk_the_name(int color)
             point2 p2;
             p2.x = x; p2.y = y;
             pixel p = get_camera_pixel(p2);
-            int color = p2.g;
+            switch(b_color) {
+                case 1: color = p.r; break;
+                case 2: color = p.g; break;
+                case 3: color = p.b; break;
+                default color = -1;   
+            }
             pos[x][y] = &image + sizeof(image) + (h*x + y);
         }
 }
